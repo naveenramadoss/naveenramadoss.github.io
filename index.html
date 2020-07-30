@@ -31,8 +31,8 @@
                 
                 // When reading the csv, I must format variables:
                 function(d){
-                    //return { date : d3.timeParse("%Y-%m-%d")(d.date), value : d.value }
-                    return { date : d3.timeParse("%m/%e/%Y")(d.date), value : d.TotalDeaths }
+                    return { date : d3.timeParse("%Y-%m-%d")(d.date), value : d.value }
+                    //return { date : d3.timeParse("%m/%d/%Y")(d.date), value : d.TotalDeaths }
                 },
 
                 // Now I can use this dataset:
