@@ -57,7 +57,7 @@ async function init() {
 }
 
 function secondQuarter() {
-    alert("Inside 2nd")
+    alert("Inside 2nd function")
     // Clear the area
     d3.select("#my_dataviz").html("");
 
@@ -120,7 +120,7 @@ function secondQuarter() {
 }
 
 function thirdQuarter() {
-    alert("Inside 3rd")
+    alert("Inside 3rd function")
     // Clear the area
     d3.select("#my_dataviz").html("");
     
