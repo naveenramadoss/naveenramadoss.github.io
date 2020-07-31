@@ -16,7 +16,7 @@ async function init() {
     //Read the data
     //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
     
-    d3.csv("/dataset/time_series_covid19_deaths_global_2nd_quarter.csv",
+    d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
     
     // When reading the csv, I must format variables:
     function(d){
@@ -59,7 +59,7 @@ async function init() {
 function secondQuarter() {
     alert("Inside 2nd")
     // Clear the area
-    d3.select("#my_dataviz").html = "";
+    d3.select("#my_dataviz").innerHTML = "";
     
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
@@ -78,7 +78,7 @@ function secondQuarter() {
     //Read the data
     //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
     
-    d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
+    d3.csv("/dataset/time_series_covid19_deaths_global_2nd_quarter.csv",
     
     // When reading the csv, I must format variables:
     function(d){
@@ -121,7 +121,7 @@ function secondQuarter() {
 function thirdQuarter() {
     alert("Inside 3rd")
     // Clear the area
-    d3.select("#my_dataviz").html = "";
+    d3.select("#my_dataviz").innerHTML = "";
     
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
