@@ -34,8 +34,8 @@ async function init() {
 
         // Add Y axis
         var y = d3.scaleLinear()
-          //.domain([0, d3.max(data, function(d) { return +d.value; })])
-          .domain([0,70000])
+          .domain([0, d3.max(data, function(d) { return +d.value; })])
+          //.domain([0,700000])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
@@ -88,7 +88,7 @@ async function secondQuarter() {
 
         // Add X axis --> it is a date format
         var x = d3.scaleTime()
-          .domain(d3.extent(data, function(d) { return d.Date; }))
+          .domain(d3.extent(data, function(d) { return d.date; }))
           .range([ 0, width ]);
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
@@ -96,8 +96,8 @@ async function secondQuarter() {
 
         // Add Y axis
         var y = d3.scaleLinear()
-          //.domain([0, d3.max(data, function(d) { return +d.value; })])
-          .domain([0,70000])
+          .domain([0, d3.max(data, function(d) { return +d.value; })])
+          //.domain([0,70000])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
@@ -157,8 +157,8 @@ async function thirdQuarter() {
 
         // Add Y axis
         var y = d3.scaleLinear()
-          //.domain([0, d3.max(data, function(d) { return +d.value; })])
-          .domain([0,70000])
+          .domain([0, d3.max(data, function(d) { return +d.value; })])
+          //.domain([0,70000])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
