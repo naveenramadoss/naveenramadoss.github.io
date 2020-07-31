@@ -3,6 +3,13 @@
     <script src="https://d3js.org/d3.v4.js"></script>
 
     <body onload='init()'>
+        <script>
+            // set the dimensions and margins of the graph
+            var margin = {top: 10, right: 30, bottom: 30, left: 60},
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+        </script>
+        
         <script src="scripts/datavis.js"></script>
         
         <h1>Sample chart for showing the graphs.</h1>

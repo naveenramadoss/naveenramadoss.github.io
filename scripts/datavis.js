@@ -1,9 +1,4 @@
 async function init() {
-    // set the dimensions and margins of the graph
-    var margin = {top: 10, right: 30, bottom: 30, left: 60},
-        width = 460 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
-    
     d3.select("#my_dataviz").html("");
     
     // append the svg object to the body of the page
@@ -64,9 +59,9 @@ function secondQuarter() {
 
 
     // set the dimensions and margins of the graph
-    var margin = {top: 10, right: 30, bottom: 30, left: 60},
-        width = 460 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+    //var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    //    width = 460 - margin.left - margin.right,
+    //    height = 400 - margin.top - margin.bottom;
     
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
@@ -125,9 +120,9 @@ function thirdQuarter() {
     d3.select("#my_dataviz").html("");
     
     // set the dimensions and margins of the graph
-    var margin = {top: 10, right: 30, bottom: 30, left: 60},
-        width = 460 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+    //var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    //    width = 460 - margin.left - margin.right,
+    //    height = 400 - margin.top - margin.bottom;
     
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
