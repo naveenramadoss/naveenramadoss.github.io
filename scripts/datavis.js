@@ -3,7 +3,9 @@ async function init() {
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
         width = 460 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
-
+    
+    d3.select("#my_dataviz").html("");
+    
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
       .append("svg")
@@ -16,7 +18,7 @@ async function init() {
     //Read the data
     //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
     
-    d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
+    d3.csv("/dataset/time_series_covid19_deaths_global_2nd_quarter.csv",
     
     // When reading the csv, I must format variables:
     function(d){
@@ -92,7 +94,7 @@ function secondQuarter() {
 
         // Add X axis --> it is a date format
         var x = d3.scaleTime()
-          .domain(d3.extent(data, function(d) { return d.date; }))
+          .domain(d3.extent(data, function(d) { return d.Date; }))
           .range([ 0, width ]);
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
