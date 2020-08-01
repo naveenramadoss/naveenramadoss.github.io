@@ -118,6 +118,14 @@ async function secondQuarter() {
             .x(function(d) { return x(d.date) })
             .y(function(d) { return y(d.value) })
             )
+            
+        // Add annotation to the chart
+        svg.append('text').text('Surge in Covid deaths from April to June.')
+            .attr('x',100)
+            .attr('y',400)
+            .attr('fill','red')
+            .attr('font-size',10)
+            .attr('font-family','Verdana')
     })
 }
 
