@@ -1,6 +1,21 @@
 async function init() {
     d3.select("#my_dataviz").html("");
     
+    // Annotations
+    const annotations = [
+        {
+            note:{
+                label: "Global Deaths due to Covid from Jan 22nd to March 31st",
+                title: "1st Quarter Covid Deaths"
+            },
+            x: 100,
+            y: 100,
+            dy: 100,
+            dx: 100
+        }
+    ]
+    
+    
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
       .append("svg")
@@ -51,6 +66,13 @@ async function init() {
             .y(function(d) { return y(d.value) })
             )
     })
+    
+    // Add annotation to the chart
+    const makeAnnotations = d3.annotation()
+        .annotations(annotations)
+    d3.select("#my_dataviz")
+        .append("g")
+        .call(makeAnnotations)
 }
 
 async function secondQuarter() {
