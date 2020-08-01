@@ -10,10 +10,10 @@ async function init() {
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
               
-    var tooltip = d3.select("body").append("div")
+    /*var tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("display", "none");
-    
+    */
     /*
     var bisectDate = d3.bisector(function(d) { return d.date; }).left,
     formatValue = d3.format(","),
@@ -46,6 +46,11 @@ async function init() {
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y))
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
           .text("Total number of Deaths");
 
         // Add the line
