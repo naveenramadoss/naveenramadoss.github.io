@@ -11,8 +11,6 @@ async function init() {
               "translate(" + margin.left + "," + margin.top + ")");
 
     //Read the data
-    //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
-    
     await d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
     
     // When reading the csv, I must format variables:
@@ -33,8 +31,8 @@ async function init() {
 
         // Add Y axis
         var y = d3.scaleLinear()
-          //.domain([0, d3.max(data, function(d) { return +d.value; })])
-          .domain([0,700000])
+          .domain([0, d3.max(data, function(d) { return +d.value; })])
+          //.domain([0,700000])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
@@ -79,8 +77,6 @@ async function secondQuarter() {
               "translate(" + margin.left + "," + margin.top + ")");
 
     //Read the data
-    //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
-    
     await d3.csv("/dataset/time_series_covid19_deaths_global_2nd_quarter.csv",
     
     // When reading the csv, I must format variables:
@@ -102,8 +98,8 @@ async function secondQuarter() {
 
         // Add Y axis
         var y = d3.scaleLinear()
-          //.domain([0, d3.max(data, function(d) { return +d.value; })])
-          .domain([0,700000])
+          .domain([0, d3.max(data, function(d) { return +d.value; })])
+          //.domain([0,700000])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
@@ -148,8 +144,6 @@ async function thirdQuarter() {
               "translate(" + margin.left + "," + margin.top + ")");
 
     //Read the data
-    //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
-    
     await d3.csv("/dataset/time_series_covid19_deaths_global_3rd_quarter.csv",
     
     // When reading the csv, I must format variables:
@@ -171,8 +165,8 @@ async function thirdQuarter() {
 
         // Add Y axis
         var y = d3.scaleLinear()
-          //.domain([0, d3.max(data, function(d) { return +d.value; })])
-          .domain([0,700000])
+          .domain([0, d3.max(data, function(d) { return +d.value; })])
+          //.domain([0,700000])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
@@ -189,7 +183,7 @@ async function thirdQuarter() {
             )
             
         // Add annotation to the chart
-        svg.append('text').text('Covid deaths Surge continuing in July as well.')
+        svg.append('text').text('Covid deaths Surge continuing in July.')
             .attr('x',200)
             .attr('y',100)
             .attr('fill','red')
