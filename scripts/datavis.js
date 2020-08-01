@@ -9,6 +9,10 @@ async function init() {
       .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
+              
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("display", "none");
 
     //Read the data
     await d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
