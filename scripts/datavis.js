@@ -52,8 +52,8 @@ async function init() {
         
         // Add annotation to the chart
         svg.append('text').text('Covid deaths from Jan to March')
-            .attr('x',100)
-            .attr('y',200)
+            .attr('x',200)
+            .attr('y',300)
             .attr('fill','red')
             .attr('font-size',10)
             .attr('font-family','Verdana')
@@ -121,8 +121,8 @@ async function secondQuarter() {
             
         // Add annotation to the chart
         svg.append('text').text('Surge in Covid deaths from April to June.')
-            .attr('x',100)
-            .attr('y',400)
+            .attr('x',200)
+            .attr('y',250)
             .attr('fill','red')
             .attr('font-size',10)
             .attr('font-family','Verdana')
@@ -187,5 +187,13 @@ async function thirdQuarter() {
             .x(function(d) { return x(d.date) })
             .y(function(d) { return y(d.value) })
             )
+            
+        // Add annotation to the chart
+        svg.append('text').text('Covid deaths Surge continuing in July as well.')
+            .attr('x',200)
+            .attr('y',100)
+            .attr('fill','red')
+            .attr('font-size',10)
+            .attr('font-family','Verdana')
     })
 }
