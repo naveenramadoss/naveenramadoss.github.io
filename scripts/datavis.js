@@ -51,10 +51,12 @@ async function init() {
             )
         
         // Add annotation to the chart
-        svg.append('text').text('This is the sample annotations')
+        svg.append('text').text('Covid deaths from Jan to March')
             .attr('x',100)
             .attr('y',200)
-            .attr('fill','black')
+            .attr('fill','red')
+            .attr('font-size',10)
+            .attr('font-family','Verdana')
     })  
 }
 
