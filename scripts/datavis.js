@@ -51,6 +51,7 @@ async function init() {
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
+          .attr('fill','black')
           .text("Total number of Deaths");
 
         // Add the line
@@ -118,7 +119,14 @@ async function secondQuarter() {
           //.domain([0,700000])
           .range([ height, 0 ]);
         svg.append("g")
-          .call(d3.axisLeft(y));
+          .call(d3.axisLeft(y))
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .attr('fill','black')
+          .text("Total number of Deaths");
 
         // Add the line
         svg.append("path")
@@ -185,7 +193,14 @@ async function thirdQuarter() {
           //.domain([0,700000])
           .range([ height, 0 ]);
         svg.append("g")
-          .call(d3.axisLeft(y));
+          .call(d3.axisLeft(y))
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .attr('fill','black')
+          .text("Total number of Deaths");
 
         // Add the line
         svg.append("path")
