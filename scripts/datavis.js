@@ -23,7 +23,6 @@ async function init() {
 
     // Now I can use this dataset:
     function(data) {
-
         // Add X axis --> it is a date format
         var x = d3.scaleTime()
           .domain(d3.extent(data, function(d) { return d.date; }))
@@ -62,7 +61,6 @@ async function init() {
 async function secondQuarter() {
     // Clear the area
     d3.select("#my_dataviz").html("");
-
 
     // set the dimensions and margins of the graph
     //var margin = {top: 10, right: 30, bottom: 30, left: 60},
