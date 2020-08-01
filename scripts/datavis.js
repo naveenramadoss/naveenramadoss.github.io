@@ -13,6 +13,8 @@ async function init() {
     var tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("display", "none");
+        
+    var bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
     //Read the data
     await d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
