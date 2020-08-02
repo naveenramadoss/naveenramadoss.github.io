@@ -32,7 +32,7 @@ async function init() {
     function(data) {
         
         data.forEach(function(d) {
-            d.date = d.date;
+            d.date = d3.timeParse("%Y-%m-%d")(d.date);
             d.deaths = +d.value;
         });
         
