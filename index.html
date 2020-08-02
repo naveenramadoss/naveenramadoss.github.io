@@ -104,7 +104,7 @@
                 outline: none;
             }*/
             
-            .button {
+            .btn {
                 border: none;
                 outline: none;
                 padding: 10px 16px;
@@ -114,7 +114,7 @@
             }
 
             /* Style the active class, and buttons on mouse-over */
-            .active, .button:hover {
+            .active, .btn:hover {
                 background-color: #666;
                 color: white;
             }
@@ -145,9 +145,9 @@
         <!-- Create a div where the parameter will be shown -->
         <div id="my_dataviz_chart" class="myDiv2">Q1(Jan-March)</div>
         
-        <button class="btn active" type="button" onclick="init()">Q1</button>
-        <button type="button" onclick="secondQuarter()">Q2</button>
-        <button type="button" onclick="thirdQuarter()">Q3</button>
+        <button id="initbutton" class="btn" type="button" onclick="init()">Q1</button>
+        <button class="btn" type="button" onclick="secondQuarter()">Q2</button>
+        <button class="btn" type="button" onclick="thirdQuarter()">Q3</button>
         
         <!-- Create a div where the graph will take place -->
         <div id="my_dataviz"></div>

@@ -5,6 +5,8 @@ function init(){
     d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases due to Covid for Quarter1(2020).");
     d3.select("#my_dataviz_chart").html("Q1(Jan-March)");
     
+    d3.select("#initbutton").classList.add("btn");
+    
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
       .append("svg")
