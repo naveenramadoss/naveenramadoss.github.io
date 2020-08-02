@@ -1,4 +1,4 @@
-async function init(){
+function init(){
     d3.select("#my_dataviz").html("");
     
     // Set the title and parameter for this scene
@@ -24,7 +24,7 @@ async function init(){
         dateFormatter = d3.timeFormat("%m/%d/%y");
     
     //Read the data
-    await d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
+    d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
     
     // When reading the csv, I must format variables:
     function(d){
