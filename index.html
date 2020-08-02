@@ -86,7 +86,7 @@
             .tooltip-date, .tooltip-likes {
                 font-weight: bold;
             }
-            
+            /*
             #button:active {
                 background-color: #0074a9;
             }
@@ -102,6 +102,21 @@
             button:hover, button:focus{
                 background-color: #0074a9;
                 outline: none;
+            }*/
+            
+            .button {
+                border: none;
+                outline: none;
+                padding: 10px 16px;
+                background-color: #f1f1f1;
+                cursor: pointer;
+                font-size: 18px;
+            }
+
+            /* Style the active class, and buttons on mouse-over */
+            .active, .button:hover {
+                background-color: #666;
+                color: white;
             }
         </style>
         
@@ -130,7 +145,7 @@
         <!-- Create a div where the parameter will be shown -->
         <div id="my_dataviz_chart" class="myDiv2">Q1(Jan-March)</div>
         
-        <button type="button" onclick="init()">Q1</button>
+        <button class="btn active" type="button" onclick="init()">Q1</button>
         <button type="button" onclick="secondQuarter()">Q2</button>
         <button type="button" onclick="thirdQuarter()">Q3</button>
         
