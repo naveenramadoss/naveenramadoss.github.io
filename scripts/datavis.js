@@ -32,7 +32,7 @@ async function init() {
     function(data) {
         
         data.forEach(function(d) {
-            //d.date = parseDate(d.date);
+            d.date = d.date;
             d.deaths = +d.value;
         });
         
@@ -113,7 +113,7 @@ async function init() {
                 d = x0 - d0.date > d1.date - x0 ? d1 : d0;
             focus.attr("transform", "translate(" + x(d.date) + "," + y(d.deaths) + ")");
             tooltip.attr("style", "left:" + (x(d.date) + 64) + "px;top:" + y(d.deaths) + "px;");
-            tooltip.select(".tooltip-date").text(parseDate(d.date));
+            tooltip.select(".tooltip-date").text(d.date);
             tooltip.select(".tooltip-likes").text(formatValue(d.deaths));
         }
     })  
