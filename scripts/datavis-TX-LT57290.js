@@ -1,10 +1,6 @@
 async function init() {
     d3.select("#my_dataviz").html("");
     
-    // Set the title and parameter for this scene
-    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases for Quarter1.");
-    d3.select("#my_dataviz_chart").html("Q1(Jan-March)");
-    
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
       .append("svg")
@@ -126,10 +122,6 @@ async function init() {
 async function secondQuarter() {
     // Clear the area
     d3.select("#my_dataviz").html("");
-    
-    // Set the title and parameter for this scene
-    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases for Quarter2.");
-    d3.select("#my_dataviz_chart").html("Q2(Apr-Jun)");
 
     // set the dimensions and margins of the graph
     //var margin = {top: 10, right: 30, bottom: 30, left: 60},
@@ -257,10 +249,6 @@ async function secondQuarter() {
 async function thirdQuarter() {
     // Clear the area
     d3.select("#my_dataviz").html("");
-    
-    // Set the title and parameter for this scene
-    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases for Quarter3.");
-    d3.select("#my_dataviz_chart").html("Q2(July-Sep)");
     
     // set the dimensions and margins of the graph
     //var margin = {top: 10, right: 30, bottom: 30, left: 60},
