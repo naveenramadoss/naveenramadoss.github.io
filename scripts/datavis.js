@@ -14,8 +14,8 @@ async function init() {
         .attr("class", "tooltip")
         .style("display", "none");
     
-    //var parseDate = d3.time.format("%m/%e/%Y").parse,
-    var bisectDate = d3.bisector(function(d) { return d.date; }).left,
+    var parseDate = d3.timeParse("%Y-%m-%d"),
+        bisectDate = d3.bisector(function(d) { return d.date; }).left,
         formatValue = d3.format(",");
         //dateFormatter = d3.time.format("%m/%d/%y");
     
@@ -32,7 +32,7 @@ async function init() {
     function(data) {
         
         data.forEach(function(d) {
-            d.fdate = d.date;
+            d.fdate = parseDate(d.Date);
             d.deaths = +d.value;
         });
         
