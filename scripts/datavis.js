@@ -10,15 +10,14 @@ async function init() {
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
               
-    /*var tooltip = d3.select("body").append("div")
+    var tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("display", "none");
-    */
-    /*
-    var bisectDate = d3.bisector(function(d) { return d.date; }).left,
-    formatValue = d3.format(","),
-    dateFormatter = d3.time.format("%m/%d/%y");
-    */
+    
+    var parseDate = d3.time.format("%m/%e/%Y").parse,
+        bisectDate = d3.bisector(function(d) { return d.date; }).left,
+        formatValue = d3.format(","),
+        dateFormatter = d3.time.format("%m/%d/%y");
     
     //Read the data
     await d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
@@ -31,6 +30,12 @@ async function init() {
 
     // Now I can use this dataset:
     function(data) {
+        
+        data.forEach(function(d) {
+            d.fdate = parseDate(d.date);
+            d.deaths = +d.deaths;
+        });
+        
         // Add X axis --> it is a date format
         var x = d3.scaleTime()
           .domain(d3.extent(data, function(d) { return d.date; }))
@@ -72,6 +77,45 @@ async function init() {
             .attr('fill','red')
             .attr('font-size',10)
             .attr('font-family','Verdana')
+            
+        // Adding tooltip
+        var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 5);
+
+        var tooltipDate = tooltip.append("div")
+            .attr("class", "tooltip-date");
+
+        var tooltipLikes = tooltip.append("div");
+        tooltipLikes.append("span")
+            .attr("class", "tooltip-title")
+            .text("Deaths: ");
+
+        var tooltipLikesValue = tooltipLikes.append("span")
+            .attr("class", "tooltip-likes");
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
+            .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        function mousemove() {
+            var x0 = x.invert(d3.mouse(this)[0]),
+                i = bisectDate(data, x0, 1),
+                d0 = data[i - 1],
+                d1 = data[i],
+                d = x0 - d0.fdate > d1.fdate - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.fdate) + "," + y(d.deaths) + ")");
+            tooltip.attr("style", "left:" + (x(d.fdate) + 64) + "px;top:" + y(d.deaths) + "px;");
+            tooltip.select(".tooltip-date").text(dateFormatter(d.fdate));
+            tooltip.select(".tooltip-likes").text(formatValue(d.deaths));
+        }
     })  
 }
 
