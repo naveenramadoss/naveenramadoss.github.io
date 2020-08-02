@@ -16,8 +16,8 @@ async function init() {
     
     var parseDate = d3.timeParse("%Y-%m-%d"),
         bisectDate = d3.bisector(function(d) { return d.date; }).left,
-        formatValue = d3.format(",");
-        //dateFormatter = d3.time.format("%m/%d/%y");
+        formatValue = d3.format(","),
+        dateFormatter = d3.timeFormat("%m/%d/%y");
     
     //Read the data
     await d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
@@ -32,7 +32,7 @@ async function init() {
     function(data) {
         
         data.forEach(function(d) {
-            d.date = d3.timeParse("%Y-%m-%d")(d.date);
+            //d.date = parseDate(d.date);
             d.deaths = +d.value;
         });
         
@@ -113,7 +113,7 @@ async function init() {
                 d = x0 - d0.date > d1.date - x0 ? d1 : d0;
             focus.attr("transform", "translate(" + x(d.date) + "," + y(d.deaths) + ")");
             tooltip.attr("style", "left:" + (x(d.date) + 64) + "px;top:" + y(d.deaths) + "px;");
-            tooltip.select(".tooltip-date").text(d.date);
+            tooltip.select(".tooltip-date").text(dateFormatter(d.date));
             tooltip.select(".tooltip-likes").text(formatValue(d.deaths));
         }
     })  
