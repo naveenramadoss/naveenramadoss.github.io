@@ -32,8 +32,8 @@ async function init() {
     function(data) {
         
         data.forEach(function(d) {
-            d.fdate = parseDate(d.date);
-            d.deaths = +d.deaths;
+            d.fdate = parseDate(d.Date);
+            d.deaths = +d.TotalDeaths;
         });
         
         // Add X axis --> it is a date format
