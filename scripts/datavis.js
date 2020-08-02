@@ -14,8 +14,8 @@ async function init() {
         .attr("class", "tooltip")
         .style("display", "none");
     
-    var parseDate = d3.time.format("%m/%e/%Y").parse,
-        bisectDate = d3.bisector(function(d) { return d.date; }).left,
+    //var parseDate = d3.time.format("%m/%e/%Y").parse,
+    var bisectDate = d3.bisector(function(d) { return d.date; }).left,
         formatValue = d3.format(","),
         dateFormatter = d3.time.format("%m/%d/%y");
     
@@ -32,7 +32,7 @@ async function init() {
     function(data) {
         
         data.forEach(function(d) {
-            d.fdate = parseDate(d.Date);
+            //d.fdate = parseDate(d.Date);
             d.deaths = +d.TotalDeaths;
         });
         
@@ -110,10 +110,10 @@ async function init() {
                 i = bisectDate(data, x0, 1),
                 d0 = data[i - 1],
                 d1 = data[i],
-                d = x0 - d0.fdate > d1.fdate - x0 ? d1 : d0;
-            focus.attr("transform", "translate(" + x(d.fdate) + "," + y(d.deaths) + ")");
-            tooltip.attr("style", "left:" + (x(d.fdate) + 64) + "px;top:" + y(d.deaths) + "px;");
-            tooltip.select(".tooltip-date").text(dateFormatter(d.fdate));
+                d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.date) + "," + y(d.deaths) + ")");
+            tooltip.attr("style", "left:" + (x(d.date) + 64) + "px;top:" + y(d.deaths) + "px;");
+            tooltip.select(".tooltip-date").text(dateFormatter(d.date));
             tooltip.select(".tooltip-likes").text(formatValue(d.deaths));
         }
     })  
