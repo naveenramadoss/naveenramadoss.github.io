@@ -71,7 +71,7 @@ async function init() {
             )
         
         // Add annotation to the chart
-        svg.append('text').text('Covid deaths from Jan to March')
+        svg.append('text').text('Covid deaths from Jan to March.')
             .attr('x',500)
             .attr('y',300)
             .attr('fill','red')
