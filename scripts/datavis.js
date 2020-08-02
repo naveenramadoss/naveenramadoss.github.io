@@ -32,7 +32,7 @@ async function init() {
     function(data) {
         
         data.forEach(function(d) {
-            d.date = parseDate(d.date);
+            d.fdate = parseDate(d.date);
             d.deaths = +d.value;
         });
         
@@ -110,10 +110,10 @@ async function init() {
                 i = bisectDate(data, x0, 1),
                 d0 = data[i - 1],
                 d1 = data[i],
-                d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-            focus.attr("transform", "translate(" + x(d.date) + "," + y(d.deaths) + ")");
-            tooltip.attr("style", "left:" + (x(d.date) + 64) + "px;top:" + y(d.deaths) + "px;");
-            tooltip.select(".tooltip-date").text(d.date);
+                d = x0 - d0.fdate > d1.fdate - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.fdate) + "," + y(d.deaths) + ")");
+            tooltip.attr("style", "left:" + (x(d.fdate) + 64) + "px;top:" + y(d.deaths) + "px;");
+            tooltip.select(".tooltip-date").text(d.fdate);
             tooltip.select(".tooltip-likes").text(formatValue(d.deaths));
         }
     })  
