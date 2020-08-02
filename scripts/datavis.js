@@ -260,7 +260,7 @@ async function thirdQuarter() {
     
     // Set the title and parameter for this scene
     d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases for Quarter3.");
-    d3.select("#my_dataviz_chart").html("Q2(July-Sep)");
+    d3.select("#my_dataviz_chart").html("Q2(July-Sepc)");
     
     // set the dimensions and margins of the graph
     //var margin = {top: 10, right: 30, bottom: 30, left: 60},
