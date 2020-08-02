@@ -145,12 +145,26 @@
         <!-- Create a div where the parameter will be shown -->
         <div id="my_dataviz_chart" class="myDiv2">Q1(Jan-March)</div>
         
-        <button id="initbutton" class="btn" type="button" onclick="init()">Q1</button>
-        <button class="btn" type="button" onclick="secondQuarter()">Q2</button>
-        <button class="btn" type="button" onclick="thirdQuarter()">Q3</button>
+        <div id="myButtons">
+            <button class="btn active" type="button" onclick="init()">Q1</button>
+            <button class="btn" type="button" onclick="secondQuarter()">Q2</button>
+            <button class="btn" type="button" onclick="thirdQuarter()">Q3</button>
+        </div>
         
         <!-- Create a div where the graph will take place -->
         <div id="my_dataviz"></div>
         
+        <script>
+            // Add active class to the current button (highlight it)
+            var header = document.getElementById("myButtons");
+            var btns = header.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+              btns[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+              });
+            }
+        </script>
     </body>
 </html>
