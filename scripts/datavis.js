@@ -136,6 +136,15 @@ async function secondQuarter() {
       .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
+              
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("display", "none");
+    
+    var parseDate = d3.timeParse("%Y-%m-%d"),
+        bisectDate = d3.bisector(function(d) { return d.date; }).left,
+        formatValue = d3.format(","),
+        dateFormatter = d3.timeFormat("%m/%d/%y");
 
     //Read the data
     await d3.csv("/dataset/time_series_covid19_deaths_global_2nd_quarter.csv",
@@ -148,6 +157,11 @@ async function secondQuarter() {
 
     // Now I can use this dataset:
     function(data) {
+        
+        data.forEach(function(d) {
+            //d.date = parseDate(d.date);
+            d.deaths = +d.value;
+        });
 
         // Add X axis --> it is a date format
         var x = d3.scaleTime()
@@ -190,6 +204,45 @@ async function secondQuarter() {
             .attr('fill','red')
             .attr('font-size',10)
             .attr('font-family','Verdana')
+            
+        // Adding tooltip
+        var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 5);
+
+        var tooltipDate = tooltip.append("div")
+            .attr("class", "tooltip-date");
+
+        var tooltipLikes = tooltip.append("div");
+        tooltipLikes.append("span")
+            .attr("class", "tooltip-title")
+            .text("Deaths: ");
+
+        var tooltipLikesValue = tooltipLikes.append("span")
+            .attr("class", "tooltip-likes");
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
+            .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        function mousemove() {
+            var x0 = x.invert(d3.mouse(this)[0]),
+                i = bisectDate(data, x0, 1),
+                d0 = data[i - 1],
+                d1 = data[i],
+                d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.date) + "," + y(d.deaths) + ")");
+            tooltip.attr("style", "left:" + (x(d.date) + 64) + "px;top:" + y(d.deaths) + "px;");
+            tooltip.select(".tooltip-date").text(dateFormatter(d.date));
+            tooltip.select(".tooltip-likes").text(formatValue(d.deaths));
+        }
     })
 }
 
@@ -210,6 +263,16 @@ async function thirdQuarter() {
       .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
+              
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("display", "none");
+    
+    var parseDate = d3.timeParse("%Y-%m-%d"),
+        bisectDate = d3.bisector(function(d) { return d.date; }).left,
+        formatValue = d3.format(","),
+        dateFormatter = d3.timeFormat("%m/%d/%y");
+              
 
     //Read the data
     await d3.csv("/dataset/time_series_covid19_deaths_global_3rd_quarter.csv",
@@ -222,6 +285,11 @@ async function thirdQuarter() {
 
     // Now I can use this dataset:
     function(data) {
+        
+        data.forEach(function(d) {
+            //d.date = parseDate(d.date);
+            d.deaths = +d.value;
+        });
 
         // Add X axis --> it is a date format
         var x = d3.scaleTime()
@@ -264,5 +332,44 @@ async function thirdQuarter() {
             .attr('fill','red')
             .attr('font-size',10)
             .attr('font-family','Verdana')
+            
+        // Adding tooltip
+        var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 5);
+
+        var tooltipDate = tooltip.append("div")
+            .attr("class", "tooltip-date");
+
+        var tooltipLikes = tooltip.append("div");
+        tooltipLikes.append("span")
+            .attr("class", "tooltip-title")
+            .text("Deaths: ");
+
+        var tooltipLikesValue = tooltipLikes.append("span")
+            .attr("class", "tooltip-likes");
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); tooltip.style("display", null);  })
+            .on("mouseout", function() { focus.style("display", "none"); tooltip.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        function mousemove() {
+            var x0 = x.invert(d3.mouse(this)[0]),
+                i = bisectDate(data, x0, 1),
+                d0 = data[i - 1],
+                d1 = data[i],
+                d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.date) + "," + y(d.deaths) + ")");
+            tooltip.attr("style", "left:" + (x(d.date) + 64) + "px;top:" + y(d.deaths) + "px;");
+            tooltip.select(".tooltip-date").text(dateFormatter(d.date));
+            tooltip.select(".tooltip-likes").text(formatValue(d.deaths));
+        }
     })
 }
