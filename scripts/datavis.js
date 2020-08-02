@@ -1,4 +1,4 @@
-async function init() {
+async function init(){
     d3.select("#my_dataviz").html("");
     
     // Set the title and parameter for this scene
