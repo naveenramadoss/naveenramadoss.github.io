@@ -24,7 +24,7 @@ function init(){
         dateFormatter = d3.timeFormat("%m/%d/%y");
     
     //Read the data
-    d3.csv("/dataset/time_series_covid19_deaths_global_1st_quarter.csv",
+    d3.csv("dataset/time_series_covid19_deaths_global_1st_quarter.csv",
     
     // When reading the csv, I must format variables:
     function(d){
@@ -33,7 +33,8 @@ function init(){
     },
 
     // Now I can use this dataset:
-    function(data) {
+    function(error, data) {
+        if (error) throw error;
         
         data.forEach(function(d) {
             //d.date = parseDate(d.date);
@@ -123,7 +124,7 @@ function init(){
     })  
 }
 
-async function secondQuarter() {
+function secondQuarter() {
     // Clear the area
     d3.select("#my_dataviz").html("");
     
@@ -155,7 +156,7 @@ async function secondQuarter() {
         dateFormatter = d3.timeFormat("%m/%d/%y");
 
     //Read the data
-    await d3.csv("/dataset/time_series_covid19_deaths_global_2nd_quarter.csv",
+    d3.csv("dataset/time_series_covid19_deaths_global_2nd_quarter.csv",
     
     // When reading the csv, I must format variables:
     function(d){
@@ -164,7 +165,8 @@ async function secondQuarter() {
     },
 
     // Now I can use this dataset:
-    function(data) {
+    function(error, data) {
+        if (error) throw error;
         
         data.forEach(function(d) {
             //d.date = parseDate(d.date);
@@ -254,7 +256,7 @@ async function secondQuarter() {
     })
 }
 
-async function thirdQuarter() {
+function thirdQuarter() {
     // Clear the area
     d3.select("#my_dataviz").html("");
     
@@ -287,7 +289,7 @@ async function thirdQuarter() {
               
 
     //Read the data
-    await d3.csv("/dataset/time_series_covid19_deaths_global_3rd_quarter.csv",
+    d3.csv("dataset/time_series_covid19_deaths_global_3rd_quarter.csv",
     
     // When reading the csv, I must format variables:
     function(d){
@@ -296,7 +298,8 @@ async function thirdQuarter() {
     },
 
     // Now I can use this dataset:
-    function(data) {
+    function(error, data) {
+        if (error) throw error;
         
         data.forEach(function(d) {
             //d.date = parseDate(d.date);
