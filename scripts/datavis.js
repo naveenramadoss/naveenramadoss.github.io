@@ -2,7 +2,7 @@ async function init() {
     d3.select("#my_dataviz").html("");
     
     // Set the title and parameter for this scene
-    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases for Quarter1.");
+    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases due to Covid for Quarter1(2020).");
     d3.select("#my_dataviz_chart").html("Q1(Jan-March)");
     
     // append the svg object to the body of the page
@@ -128,7 +128,7 @@ async function secondQuarter() {
     d3.select("#my_dataviz").html("");
     
     // Set the title and parameter for this scene
-    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases for Quarter2.");
+    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases due to Covid for Quarter2(2020)");
     d3.select("#my_dataviz_chart").html("Q2(Apr-Jun)");
 
     // set the dimensions and margins of the graph
@@ -259,7 +259,7 @@ async function thirdQuarter() {
     d3.select("#my_dataviz").html("");
     
     // Set the title and parameter for this scene
-    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases for Quarter3.");
+    d3.select("#my_dataviz_title").html("<h2>Line chart showing the total number of global death cases due to Covid for Quarter3(2020).");
     d3.select("#my_dataviz_chart").html("Q2(July-Sepc)");
     
     // set the dimensions and margins of the graph
